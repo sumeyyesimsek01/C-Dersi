@@ -1,0 +1,22 @@
+#include <stdio.h>
+int maksimum(int,int,int); //fonksiyon prototipi
+
+int main(void) 
+{
+  int a,b,c;
+  printf("Üç Tamsayı Giriniz:");
+  scanf("%d %d %d",&a, &b, &c);
+  printf("Maksimum: %d 'dir.\n", maksimum(a,b,c));
+  return 0;
+}
+int maksimum(int x, int y, int z) //maksimum fonksiyonunun tanımı
+{
+  int maks = x;
+  if(maks<y)
+    maks=y;
+  if(maks<z)
+    maks=z; 
+
+  return maks;
+
+}

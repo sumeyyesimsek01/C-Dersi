@@ -1,0 +1,20 @@
+#include <stdio.h>
+#include <stdlib.h>
+/* 6 yüzlü bir zarın 20 kez atılıĢını gerçekleyen bir 
+program. her atışta gelen sayıyı yazar */
+ 
+ /*0 ile 5 dizisindeki (0,1,2,3,4,5) tamsayılar üretilecektir.Buna derecelendirme (scaling) denir. 6 
+sayısı, derecelendirme faktörü olarak adlandırılır.Daha sonra, önceki sonucumuza 1 ekleyerek 
+sayıların dizisini kaydırırız. */
+
+int main(void) 
+{
+  int i ;
+  for(i=1; i <=20; i++)
+  {
+    printf("%10d",1+(rand()%6));
+      if(i%5==0)
+        printf("\n");
+  }
+  return 0;
+}

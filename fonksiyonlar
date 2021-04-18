@@ -1,0 +1,46 @@
+#include <stdio.h>
+#include<stdbool.h>
+#include<math.h>
+
+int kare(int); //fonksiyonun ilk hali. prototipi.
+int main() 
+{
+int x ;
+for(x=1; x<=10; x++)
+printf("%d", kare(x));
+return 0 ;
+}
+int kare(int y){ //fonksiyon tanımladık.
+  return y*y;
+}
+
+/*kare fonksiyonu, main altındaki printf ifadesi ( 12.satır ) içinden çağrılmıĢtır. 
+printf ( “ %d ” , kare ( x ) );
+kare fonksiyonu, x değerinin kopyasını y parametresi sayesinde alır. Daha sonra y * y 
+hesabını yapar. Sonuç, main içindeki printf fonksiyonuna döndürülür ve printf sonucu 
+yazdırır. Bu süreç, for döngü yapısı sayesinde 10 kez tekrarlanır.
+kare fonksiyonunun tanımı, kare ‟in bir y tamsayı parametresi beklediğini gösterir. 
+Fonksiyon isminden önceki int anahtar kelimesi, bize kare‟ in sonucunun yine bir tamsayı 
+olarak döndürüleceğini gösterir. kare içindeki return ifadesi, hesaplamanın sonucunu çağırıcı 
+fonksiyona döndürür.
+ 5. satırdaki
+int kare ( int );
+fonksiyon prototipidir. Parantezin içindeki int , derleyiciye kare fonksiyonunun çağırıcı 
+fonksiyondan bir tamsayı almayı beklediğini bildirir. Fonksiyon isminin solundaki int ise 
+derleyiciye, kare fonksiyonunun kendini çağıran fonksiyona bir tamsayı sonucu 
+döndüreceğini bildirir. Derleyici, kare fonksiyonu çağrıldığında fonksiyonun ilk hali 
+(prototipi) ile karĢılaĢtırma yaparak, çağrının doğru tipte geri dönüĢ değerine sahip oluĢunu, 
+doğru sayıda argüman ve doğru argüman tipleri kullanmasını ve argümanların doğru sırada 
+oluĢlarını kontrol eder. Fonksiyonların ilk halleri(prototipleri), kısım 5.6‘da detaylı olarak 
+anlatılacaktır.
+ Bir fonksiyon tanımının biçimi Ģu Ģekildedir:
+geri dönüĢ tipi fonksiyonun ismi ( parametre listesi ) 
+{
+bildirimler
+ifadeler
+}
+ Fonksiyon ismi, geçerli herhangi bir tanıtıcı olabilir. Geri dönüĢ tipi, çağırıcı fonksiyona 
+döndürülen sonucun veri tipini gösterir. void tipinde geri dönüĢ değeri, fonksiyonun herhangi 
+bir değer geri döndürmeyeceğini gösterir. BelirlenmemiĢ geri dönüĢ tipi, derleyici tarafından 
+her zaman int tipinde algılanır.
+*/

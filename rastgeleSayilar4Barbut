@@ -1,0 +1,73 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+//Barbut
+
+int zarAtma(void); //fonksiyon portatipi.
+
+int main(void) 
+{
+  int oyunDurumu, oyuncuPuani, toplam;
+  srand(time(NULL));
+  toplam = zarAtma(); //Zarın ilk atılışı.
+  switch(toplam)
+  {
+  case 7: case 11: //İlk atışta kazanma.
+    oyunDurumu=1;
+    break;
+  
+  case 2: case 3: case 12: //İlk atışta kaybetme.
+    oyunDurumu=2;
+    break;
+  
+  default : //Hatırlatma noktası.
+    oyunDurumu=0;
+    oyuncuPuani=toplam;
+    printf("Oyuncunun kazanacağı zar: %d \n",oyuncuPuani);
+    break;            
+  }
+  while(oyunDurumu==0)  //Zar atmaya devam et.
+  {
+    toplam=zarAtma();
+    if(toplam==oyuncuPuani) //Kazanılacak zarı atma.
+      oyunDurumu=1;
+    else if(toplam==7)  //7 atma ile kaybetme.
+      oyunDurumu=2;
+  }
+    if(oyunDurumu==1)
+      printf(" Oyuncu Kazanır");
+    else
+      printf("Oyuncu Kaybeder");
+return 0 ;
+}
+
+int zarAtma(void) //Fonksiyon tanımlama.
+{
+  int zar1, zar2, toplamZar;
+  zar1=(1+rand()%6);
+  zar2=(1+rand()%6);
+  toplamZar = zar1 + zar2;
+  printf("Oyuncu %d + %d = %d attı \n",zar1,zar2,toplamZar);
+  return toplamZar;
+}
+-----------------------------------------------------------------
+/* Oyuncu iki zarı aynı anda atar. Ġki zarında altı yüzü vardır. Bu 
+yüzlerde 1,2,3,4,5 ve 6 adet nokta bulunur. Zarlar durduktan 
+sonra her iki zarında üste gelen yüzleri toplanır. Eğer toplam ilk 
+atıĢta 7 ya da 11 ise oyuncu kazanır. Eğer toplam ilk atıĢta 2,3 
+ya da 12 gelirse (buna barbut denir) oyuncu kaybeder. Eğer ilk 
+atıĢta toplam 4,5,6,8,9,10 ise bu toplam oyuncunun sayısı haline 
+gelir.Kazanmak için oyuncu sayısını bulana kadar zarları atmaya 
+devam eder.Zarları atmaya devam ederken kendi sayısı yerine 7 
+atarsa kaybeder.
+*/
+-----------------------------------------------------------------
+/*
+srand ( time ( NULL ) );
+Bu, bilgisayarın besleme değeri olarak otomatik bir biçimde kendi saatini okumasına sebep 
+olur. time fonksiyonu, o andaki saati saniye biçiminde oluĢturur. Bu değer, unsigned bir 
+tamsayıya dönüĢtürülür ve rasgele sayı üretiminde besleme olarak kullanılır. time fonksiyonu 
+argüman olarak NULL kullanır. (time programcının o günkü zamanı temsil eden bir dizeyi 
+(string) elde etmesini sağlar ; NULL bu özelliği, time fonksiyonuna yapılan belirli bir 
+çağrıda ortadan kaldırır.) time fonksiyonunun prototipi <time.h> içindedir.
+*/
