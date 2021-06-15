@@ -1,0 +1,46 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main(void) 
+{
+  int sayi = 30;
+  /*
+    sayilar[0]
+    sayilar[1]
+    sayilar[2]
+    sayilar[3]
+    sayilar[4]
+  */
+  int sayac;
+  int sayilar[5]; //dizi tanimlama
+  int sayilar2[5] = {100, 99, 98, 97, 96};
+  int sayilar3[5] = {0};
+  int sayilar4[]  = {100, 99, 98, 99, 99};
+
+  for(sayac=0; sayac<5; sayac++){ //dizi ici doldurma
+    sayilar[sayac] = 100; 
+  }
+
+  printf("\n\n***Sayilar***");
+  for(sayac=0; sayac<5; sayac++){ //dizi ici gosterme
+    printf("\n%d. elemani %d'dur.", sayac, sayilar[sayac]);
+  }
+
+  printf("\n\n***Sayilar2***");
+  for(sayac=0; sayac<5; sayac++){ //dizi ici gosterme
+    printf("\n%d. elemani %d'dur.", sayac, sayilar2[sayac]);
+  }
+
+  printf("\n\n***Sayilar3***");
+  for(sayac=0; sayac<5; sayac++){ //dizi ici gosterme
+    printf("\n%d. elemani %d'dur.", sayac, sayilar3[sayac]);
+  }
+
+  printf("\n\n***Sayilar4***");
+  for(sayac=0; sayac<5; sayac++){ //dizi ici gosterme
+    printf("\n%d. elemani %d'dur.", sayac, sayilar4[sayac]);
+  }
+
+  return 0;
+}

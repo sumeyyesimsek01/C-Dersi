@@ -1,0 +1,26 @@
+#include "stdio.h"
+#include "stdlib.h"    //rand
+#include "time.h"      //srand icindeki time()
+#include "stdbool.h"
+#include "math.h"
+
+#define Boyut 7
+
+int main()
+{ 
+  int yuz, zarAt, frekans[Boyut]={0};
+  srand(time(NULL));
+
+  for(zarAt=1; zarAt<=6000; zarAt++)
+  {
+    yuz = (rand()%6) +1;
+    ++frekans[yuz];
+  }
+      printf( "%s%17s\n", "Yüz", "Frekans" );
+   
+   for(yuz=1; yuz<=Boyut-1; yuz++)
+      printf( "%3d%17d\n", yuz, frekans [ yuz ] );
+
+    return 0;
+
+}

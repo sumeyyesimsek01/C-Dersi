@@ -1,0 +1,31 @@
+#include "stdio.h"
+#include "stdlib.h"    //rand
+#include "time.h"      //srand icindeki time()
+#include "stdbool.h"
+#include "math.h"
+/*
+  Uzunlugu 11 olan bir listenin icerisini(degerlerini) indexinin 2 kati olacak sekilde doldurun.
+  0. indexte  0
+  1. indexte  2
+  2. indexte  4
+  ...
+  ...
+  10. indexte  20
+  [0, 2, 4, .....,   20] > dizinin kendisi/degerleri
+   0. 1. 2.          10. > dizinin indexleri
+*/
+#define UZUNLUK 11 // UZUNLUK=10
+
+int main(void){
+  int sayilar[UZUNLUK]; //dizi tanimlama
+  int i;
+
+  for(i=0; i<UZUNLUK; i++){ //dizi doldurma
+    sayilar[i] = i*2;
+  }
+
+  for(i=0; i<UZUNLUK; i++){ //dizi gosterme
+    printf("\n%d. eleman = %d", i, sayilar[i]);
+  }
+  return 0;
+}

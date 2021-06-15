@@ -1,0 +1,65 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+/*
+Yerel bir değiĢken yalnızca fonksiyon tanımı içinde bilinir. Diğer fonksiyonların, bir 
+fonksiyonun yerel değiĢkenlerinin isimlerini bilmeye ve bir fonksiyonun, diğer bir 
+fonksiyonun uygulama detaylarını bilmeye hakkı yoktur.
+*/
+
+//Faaliyet alanı örneği.
+
+//Fonksiyon prototipleri.
+void a(void); 
+void b(void);
+void c(void);
+
+int x=1; //Global değişken.
+
+int main() 
+{
+  int x=5; //main' e yerel değişken.
+    printf ("main'in faaliyet alanı dışındaki yerel x değişkeni %d olur.\n", x );
+  
+  { //yeni faaliyet alanına başla
+    int x = 7;
+    printf("main'in faaliyet alanı içindeki yerel x değişkeni %d olur. \n",x);
+  } // yeni faaliyet alanını bitir
+
+    printf( "main'in faaliyet alanı dışındaki yerel x değişkeni %d olur.\n", x );
+
+  a(); //a automatic yerel x' e sahiptir.
+  b(); //b static yerel x'e sahiptir.
+  c(); //c global x kullanır.
+  a(); //a automatic yerel x' e tekrar ilk değer atar.
+  b(); //static yerel x önceki değerini korur
+  c(); //global x de değerinin korur.
+  
+    printf("main içindeki yerel x %d olur.\n",x);
+  return 0;
+}
+
+
+//FONKSİYONLAR
+void a(void)
+{
+  int x = 25; //a her çağırıldığında ilk değeri atanır.
+    printf("\n a'ya girildikten sonra yerel x %d olur. \n", x) ;
+  ++x;
+    printf("a'dan çıkmadan önce yerel x %d olur. \n", x);
+}
+
+void b(void)
+{
+  static int x = 50; //Sadece static ilk değer atama. (b nin ilk çağrılması)
+    printf("\n b 'ye girerken static x %d olur.\n", x);
+  ++x;
+    printf("b'den çıkarken önce static x %d olur.\n",x);
+}
+
+void c(void)
+{
+    printf("\n c'ye girerken global x %d olur. \n",x);
+  x*=10;
+    printf("c'den çıkarken global x %d olur.\n",x);
+}

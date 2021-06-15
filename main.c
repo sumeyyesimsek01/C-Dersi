@@ -1,52 +1,39 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
-//Barbut
+#include "stdio.h"
+#include "stdlib.h"    //rand
+#include "time.h"      //srand icindeki time()
+#include "stdbool.h"
+#include "math.h"
+/*
+  Fonksiyona dizinin parametre olarak verilmesi
+*/
+#define UZUNLUK 5
 
-int zarAtma(void); //fonksiyon portatipi.
 
-int main(void) 
-{
-  int oyunDurumu, oyuncuPuani, toplam;
-  srand(time(NULL));
-  toplam = zarAtma(); //Zarın ilk atılışı.
-  switch(toplam)
-  {
-  case 7: case 11: //İlk atışta kazanma.
-    oyunDurumu=1;
-    break;
+void DiziKareAl(int dizi[], int diziBoyutu);
+void DiziYazdir(int dizi[], int diziBoyutu);
+
+int main(void){
+  int dizim[UZUNLUK] = {10, 11, 100, 200, -5};
   
-  case 2: case 3: case 12: //İlk atışta kaybetme.
-    oyunDurumu=2;
-    break;
-  
-  default : //Hatırlatma noktası.
-    oyunDurumu=0;
-    oyuncuPuani=toplam;
-    printf("Oyuncunun kazanacağı zar: %d \n",oyuncuPuani);
-    break;            
-  }
-  while(oyunDurumu==0)  //Zar atmaya devam et.
-  {
-    toplam=zarAtma();
-    if(toplam==oyuncuPuani) //Kazanılacak zarı atma.
-      oyunDurumu=1;
-    else if(toplam==7)  //7 atma ile kaybetme.
-      oyunDurumu=2;
-  }
-    if(oyunDurumu==1)
-      printf(" Oyuncu Kazanır");
-    else
-      printf("Oyuncu Kaybeder");
-return 0 ;
+  printf("\nDizi ilk hali:\n");
+  DiziYazdir(dizim, UZUNLUK);
+
+  DiziKareAl(dizim, UZUNLUK);
+
+  printf("\nDizi son hali:\n");
+  DiziYazdir(dizim, UZUNLUK);
+  return 0;
 }
 
-int zarAtma(void) //Fonksiyon tanımlama.
-{
-  int zar1, zar2, toplamZar;
-  zar1=(1+rand()%6);
-  zar2=(1+rand()%6);
-  toplamZar = zar1 + zar2;
-  printf("Oyuncu %d + %d = %d attı \n",zar1,zar2,toplamZar);
-  return toplamZar;
+void DiziYazdir(int dizi1[], int diziBoyutu){
+  int ind;
+  for(ind=0; ind<diziBoyutu; ind++){
+    printf("\n%d. eleman = %d", ind+1, dizi1[ind]);
+  }
+}
+
+void DiziKareAl(int dizi2[], int diziBoyutu){
+  int ind;
+  for(ind=0; ind<diziBoyutu; ind++)
+    dizi2[ind] = dizi2[ind] * dizi2[ind];
 }

@@ -71,3 +71,30 @@ argüman olarak NULL kullanır. (time programcının o günkü zamanı temsil ed
 (string) elde etmesini sağlar ; NULL bu özelliği, time fonksiyonuna yapılan belirli bir 
 çağrıda ortadan kaldırır.) time fonksiyonunun prototipi <time.h> içindedir.
 */
+--------------------------------------------------------------------
+/*
+Oyuncunun ilk atıĢta ve daha sonra gelen atıĢlarda iki zarı birden atması gerektiğine dikkat 
+ediniz. zarAtma adında bir fonksiyon, zarların atıĢından gelen toplamı hesaplayıp, yazdırmak 
+için tanımlanmıĢtır. zarAtma fonksiyonu bir kez tanımlanmıĢ ancak programda iki yerde 
+çağrılmıĢtır. Ġlginç olan zarAtma fonksiyonunun argüman almamasıdır. Bu sebepten, 
+fonksiyonun parametre listesinde void kullanılmıĢtır. zarAtma fonksiyonu iki zarın üstüne 
+gelen sayıların toplamını döndürmektedir ve bu sebepten, fonksiyon baĢlığında geri dönüĢ tipi 
+int olarak bildirilmiĢtir.
+Program oldukça kapsamlıdır. Oyuncu ilk atıĢında kazanabilir ya da kaybedebilir ya da daha 
+sonraki atıĢlarında kazanabilir ya da kaybedebilir. oyunDurumu değiĢkeni, bütün bunların 
+kaydını tutmak için kullanılmıĢtır
+Oyun ilk ya da daha sonraki atıĢlarda kazanıldığında, oyunDurumu değiĢkeni 1 yapılmıĢtır. 
+Oyun ilk ya da daha sonraki atıĢlarda kaybedildiğinde, oyunDurumu değiĢkeni 2 yapılmıĢtır.
+Aksi takdirde, oyunDurumu değiĢkeni 0 olarak gösterilmiĢtir ve program devam edecektir.
+Ġlk atıĢtan sonra eğer oyun biterse, oyundurumu 0‘a eĢit olmadığı için while yapısı atlanır. 
+Program if/else yapısını çalıĢtırır ve oyundurumu 1 ise ―Oyuncu kazanır‖ , oyunDurumu 2
+ise ―Oyuncu kaybeder ― yazdırır.
+Ġlk atıĢtan sonra oyun bitmezse toplam , oyuncuPuani içinde saklanır. oyunDurumu 0
+olduğu için program while yapısıyla devam eder. while yapısı her çalıĢtığında zarAtma 
+fonksiyonu çağrılarak yeni bir toplam oluĢturulur. Eğer toplam, oyuncuPuani ile eĢleĢirse 
+oyunDurumu oyuncunun kazandığını belirtmek için 1 olur, while testi yanlıĢ olacağından
+while yapısı atlanır, if/else yapısı ―Oyuncu kazanır‖ yazdırır ve programın çalıĢması sona 
+erer. Eğer toplam 7‘ye eĢitse oyunDurumu oyuncunun kaybettiğini belirtmek için 2 olur, 
+while testi yanlıĢ olacağından while yapısı atlanır, if/else yapısı ―Oyuncu kaybetder‖ 
+yazdırır ve programın çalıĢması sona erer.
+*/

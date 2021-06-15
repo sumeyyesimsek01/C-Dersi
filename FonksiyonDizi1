@@ -1,0 +1,37 @@
+#include "stdio.h"
+#include "stdlib.h"    //rand
+#include "time.h"      //srand icindeki time()
+#include "stdbool.h"
+#include "math.h"
+/*
+  Fonksiyona dizinin parametre olarak verilmesi
+*/
+#define UZUNLUK 5
+void DiziYaz(char dizi[], int diziBoyutu);
+
+int main(void){
+  char dizim[UZUNLUK] = {'a', 'b', 'x', 'y', 'z'};
+
+  /*
+    https://www.techcrashcourse.com/2015/05/c-programming-arrays.html
+    
+    0x7ffdbddc76f7 > dizim[0]'in adresi > a
+    0x7ffdbddc76f8 > dizim[1]'in adresi > b
+    0x7ffdbddc76f9 > dizim[2]'in adresi > x
+    0x7ffdbddc76fa > dizim[2]'in adresi > y
+    0x7ffdbddc76fb > dizim[4]'in adresi > z
+    0x7ffdbddc76fc > erismeye calisiyor ve bu program cercevesinde kullanilmayan bir alan, hafiza yeri.
+  */
+  printf("\ndizim:%p \ndizim adresi:%p \ndizim[1] adresi:%p", dizim, &dizim, &dizim[1]);
+  printf("\n-------");
+  DiziYaz(dizim, UZUNLUK);
+  return 0;
+}
+
+
+void DiziYaz(char dizi[], int diziBoyutu){
+  int ind;
+  for(ind=0; ind<diziBoyutu; ind++){
+    printf("\n%d. eleman = %c", ind+1, dizi[ind]);
+  }
+}

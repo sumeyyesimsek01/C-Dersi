@@ -1,0 +1,36 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+//Yineleme faktoriyel fonksiyonu.
+long faktoriyel(long);
+
+int main() 
+{
+  int i ;
+  for(i=1; i<=10; i++)
+  printf("%2d! = %ld \n", i, faktoriyel(i));
+  return 0;
+}
+
+long faktoriyel(long sayi)
+{
+  if(sayi <= 1)
+    return 1;
+  else
+    return(sayi * faktoriyel(sayi-1));
+}
+
+
+/* faktoriyel fonksiyonu, long tipte bir parametre alacak ve long tipte bir sonuç üretecek 
+biçimde bildirilmiĢtir. Bu, long int gösteriminin kısaltmasıdır. ANSI standardı long int 
+tipinde bir değiĢkenin en az 4 byte içinde depolanacağını ve bu sebepten +2147483647 kadar 
+büyük bir değer tutabileceğini belirlemiĢtir. ġekil 5.14‘te görülebileceği gibi faktoriyel 
+değerleri hızlı bir biçimde büyümektedir. long veri tipini, küçük tamsayılar (2 byte gibi) 
+kullanan bilgisayarlarda 7!‘den daha büyük faktoriyel değerlerini hesaplayabilmek için seçtik.
+long değerleri yazdırmak için %ld belirteci kullanılır. Maalesef, faktoriyel fonksiyonu büyük 
+değerleri o kadar hızlı üretir ki, long int bir değiĢkenin büyüklüğüne ulaĢılana kadar, bir çok 
+faktoriyel değerini long int kullansak bile yazdırmak mümkün olmaz. 
+AlıĢtırmalarda araĢtıracağımız gibi, daha büyük sayıların faktoriyellerini hesaplamak için 
+kullanıcı tarafından double kullanmaya ihtiyaç duyulabilir.
+*/

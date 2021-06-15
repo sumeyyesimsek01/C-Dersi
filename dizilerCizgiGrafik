@@ -1,0 +1,25 @@
+#include "stdio.h"
+#include "stdlib.h"    //rand
+#include "time.h"      //srand icindeki time()
+#include "stdbool.h"
+#include "math.h"
+
+#define Boyut 10
+
+int main()
+{
+  int n[Boyut]={6,7,8,2,3,4,9,10,1,5,};
+  int i, j;
+
+  printf( "%s%13s%17s\n", "Eleman", "Değer", "Grafik" );
+
+  for(i=0; i<= Boyut-1; i++)
+  {
+    printf( "%7d%13d ", i, n[ i ]) ;
+    
+    for(j=1; j<=n[i]; j++)
+     printf( "%c", '*' );
+     printf("\n");
+  }
+    return 0;
+}

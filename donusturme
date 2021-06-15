@@ -1,0 +1,16 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main(void) 
+{
+ float kusuratlisayi=3.345;
+    char karakter='A';
+    int donusturulmus;  //donusturulmus degeri gösterir
+   
+    donusturulmus=(int)kusuratlisayi;
+   
+   
+    printf("n kusuratlisayiyi (%f) integera cevirince %d", kusuratlisayi,donusturulmus);
+}
+

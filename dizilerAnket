@@ -1,0 +1,38 @@
+#include "stdio.h"
+#include "stdlib.h"    //rand
+#include "time.h"      //srand icindeki time()
+#include "stdbool.h"
+#include "math.h"
+
+#define CevapBoyutu 40
+#define FrekansBoyutu 11
+int main()
+{
+  int ogrenciCevabi, oylama, frekans[FrekansBoyutu]={0};
+  int cevaplar[CevapBoyutu]=
+   {1,2,3,4,5,6,7,8,9,10,
+   1,8,7,8,5,3,1,2,7,10,
+   3,4,5,6,7,1,2,8,9,10,
+   8,5,7,9,6,2,1,7,10,6};
+ 
+ /*
+for, cevaplar dizisinden cevapları alarak frekans dizisi içindeki 10 
+sayıcıdan uygun olanını ( frekans[1]‘den frekans [10]‘a kadar) arttırır. 
+*/
+
+   for(ogrenciCevabi=0; ogrenciCevabi<=CevapBoyutu-1; ogrenciCevabi++)
+    ++frekans[cevaplar[ogrenciCevabi]];
+    
+    /*
+Bu ifade, cevaplar[ ogrencicevabi ] değerine göre uygun frekans sayıcısını arttırır. Örneğin, ogrenciCevabi sayıcı değiĢkeni 0 olduğunda 
+cevaplar[ogrencicevabi ] 1‘dir. 
+*/
+    
+    printf( "%s%17s\n", "Oylama", "Frekans" );
+
+    for(oylama=1; oylama<=FrekansBoyutu-1; oylama++)
+    printf( "%6d%17d\n", oylama, frekans[ oylama] );
+
+    return 0;
+
+}

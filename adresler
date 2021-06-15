@@ -1,0 +1,42 @@
+#include "stdio.h"
+#include "stdlib.h"    //rand
+#include "time.h"      //srand icindeki time()
+#include "stdbool.h"
+#include "math.h"
+
+int degistir(int deger);
+
+/*
+  void degistir(int deger);
+  int W10_fonksiyonParametre(void){
+    int test = 10;
+    printf("\ntest (degistir oncesi) = %d", test);
+    degistir(test); //deger = test
+    printf("\ntest (degistir sonrasi) = %d", test);
+    return 0;
+  }
+
+  void degistir(int deger){
+    int karesi = deger * deger;
+    printf("\nkaresi (fonksiyon ici)= %d", karesi);
+  }
+*/
+
+int W10_fonksiyonParametre(void){
+  int test = 10;
+  printf("\ntest (degistir oncesi) = %d", test);
+  /*
+    cagirirken   >  deger = test
+    guncellerken >  test  = karesi
+  */
+  test = degistir(test);
+  printf("\ntest (degistir sonrasi) = %d", test);
+  return 0;
+}
+
+int degistir(int deger){
+  int karesi = deger * deger;
+  printf("\nkaresi (fonksiyon ici)= %d", karesi);
+  return karesi;
+}
+
